@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_26_080709) do
+ActiveRecord::Schema.define(version: 2023_12_26_081830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "event_id"
+    t.bigint "ticket_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["event_id"], name: "index_bookings_on_event_id"
+    t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
