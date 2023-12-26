@@ -14,6 +14,7 @@ class EventOrganizersController < ApplicationController
     @event_organizer = EventOrganizer.find_by_email(params[:event_organizer][:email])
 
     if @event_organizer && @event_organizer.authenticate(params[:event_organizer][:password])
+      session[:event_organizer_id] = @event_organizer.id
       render json: @event_organizer
     else
       render json: {error: 'Invalid credentials email or password'}, status: :unauthorized
