@@ -5,4 +5,10 @@ Rails.application.routes.draw do
       post 'login'
     end
   end
+
+  resources :customers, only: [:create] do
+    collection do
+      post 'login'
+    end
+  end
 end
