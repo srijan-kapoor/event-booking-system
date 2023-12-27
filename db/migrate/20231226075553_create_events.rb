@@ -1,11 +1,11 @@
 class CreateEvents < ActiveRecord::Migration[6.0]
   def change
-    create_table :events do |t|
+    create_table :events, id: :uuid do |t|
       t.string :name
       t.datetime :date
       t.string :venue
       t.string :description
-      t.belongs_to :event_organizer
+      t.belongs_to :event_organizer, type: :uuid
 
       t.timestamps
     end

@@ -41,7 +41,7 @@ class EventsController < ApplicationController
   end
 
   def authenticate_event_organizer
-    head :unauthorized unless current_user_is_event_organizer?
+    render json: { "error": "Unauthroized" }, status: :unauthorized unless current_user_is_event_organizer?
   end
 
   def set_event
