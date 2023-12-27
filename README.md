@@ -1,6 +1,8 @@
 # Event Booking System
 
-A simple backend for an event booking system
+A simple backend for an event booking system.
+
+API only application is hosted on https://event-booking-j7do.onrender.com and can be used for testing by referring to the "Endpoints" section at the end.
 
 ![Entity Relationship Diagram](./event_booking.jpg)
 * Ruby version: 2.7.2
@@ -72,3 +74,87 @@ This includes designing the API endpoints, handling requests/ responses, and err
 
 ### API Collection
 A postman collection can be found [here](https://github.com/srijan-kapoor/event-booking-system/blob/0b558abfc192e44f7afcce9d8114427eb176eb28/event-booking-system.postman_collection.json) for testing the API locally.
+
+### Endpoints
+
+- `POST /customers`
+
+![Create Customer](./create_customer.png)
+
+- `POST /customers/login`
+- `POST /event_organizers`
+
+![Login as Customer](./login_as_customer.png)
+
+- `POST /event_organizers/login`
+
+![Login as Event Organizer](./login_as_event_organizer.png)
+
+- `POST /events`
+
+  Example request body
+```
+{
+    "event" : {
+        "name": "Tomatino 2023",
+        "description": "test-desc",
+        "venue": "Spain",
+        "date": "31/02/2023",
+        "tickets_attributes": [
+            {
+                "pricing": "10000",
+                "type": "Vip"
+            },
+            {
+                "pricing": "1000",
+                "type": "Member"
+            },
+            {
+                "pricing": "5000",
+                "type": "Reserved"
+            },
+            {
+                "pricing": "500",
+                "type": "Freebie"
+            },
+            {
+                "pricing": "7000",
+                "type": "General"
+            }
+        ]
+    }
+}
+```
+- `GET /events`
+- `GET /events/:id`
+
+![Create Events](./create_events_with_tickets.png)
+
+- `PATCH /events/:id`
+
+![Update Event](./update_events.png)
+
+  Example request body:
+  ```
+  {
+  "event" : {
+      "venue": "Barcelona",
+      "date": "12/02/2024",
+      "tickets_attributes": [
+          {   "id": "03c2bf14-ea38-4853-820c-c14ad64395e9",
+              "pricing": "10000",
+              "type": "Vip"
+          },
+          {   "id": "20115c6c-5dbe-4022-8d78-1ad14d000378",
+              "pricing": "1000",
+              "type": "Member"
+          }
+      ]
+  }
+}
+```
+
+- `POST /bookings`
+- `DELETE /events/:id`
+
+![Create Booking](./create_booking.png)
