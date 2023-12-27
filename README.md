@@ -52,3 +52,6 @@ This includes designing the API endpoints, handling requests/ responses, and err
 - Role-based Authorization: Restrict API access based on the user role: Event Organizer and Customer
 
 - Background Tasks: Implement the Sidekiq jobs to send booking confirmations when a ticket is booked and to send email event update notifications to customers who have booked tickets for an event that gets updated.
+
+### API Collection
+A postman collection can be found [here](https://github.com/srijan-kapoor/event-booking-system/blob/0b558abfc192e44f7afcce9d8114427eb176eb28/event-booking-system.postman_collection.json) for testing the API locally
