@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find_by_email(params[:customer][:email])
 
     if @customer && @customer.authenticate(params[:customer][:password])
-      session[:customer_id] = @customer.id
+      session[:user_id] = @customer.id
       render json: @customer
     else
       render json: {error: 'Invalid credentials email or password'}, status: :unauthorized

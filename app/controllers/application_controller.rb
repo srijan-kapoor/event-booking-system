@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
 
   def current_user
-    EventOrganizer.find_by(id: session[:event_organizer_id]) || Customer.find_by(id: session[:customer_id])
+    EventOrganizer.find_by(id: session[:user_id]) || Customer.find_by(id: session[:user_id])
   end
 
   def current_user_is_customer?
