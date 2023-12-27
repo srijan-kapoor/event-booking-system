@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: event_booking_system_production
-  username: event_booking_system
-  password: <%= ENV['EVENT_BOOKING_SYSTEM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

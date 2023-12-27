@@ -36,6 +36,23 @@ A simple backend for an event booking system
 ### Directory Structure
 ![Code Structure](./code_structure.png)
 
+The controller actions for signing up and logging the users can be found under `/controllers/event_organizers_controller.rb` and `/controllers/customers_controller.rb`
+
+For event bookings `/controllers/bookings_controller.rb`
+
+For creating events `/controllers/events_controller.rb`
+
+This project makes use of STI for `Ticket` types. The following types of tickets are present at this point:
+
+```
+General
+Vip
+Reserved
+Member
+Freebie
+```
+
+
 ### Autonomy and Time Management
 
 - Project setup: Set a new Rails API only application with postgresql
@@ -54,4 +71,4 @@ This includes designing the API endpoints, handling requests/ responses, and err
 - Background Tasks: Implement the Sidekiq jobs to send booking confirmations when a ticket is booked and to send email event update notifications to customers who have booked tickets for an event that gets updated.
 
 ### API Collection
-A postman collection can be found [here](https://github.com/srijan-kapoor/event-booking-system/blob/0b558abfc192e44f7afcce9d8114427eb176eb28/event-booking-system.postman_collection.json) for testing the API locally
+A postman collection can be found [here](https://github.com/srijan-kapoor/event-booking-system/blob/0b558abfc192e44f7afcce9d8114427eb176eb28/event-booking-system.postman_collection.json) for testing the API locally.
