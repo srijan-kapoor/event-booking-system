@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :bookings, only: :create
 end
