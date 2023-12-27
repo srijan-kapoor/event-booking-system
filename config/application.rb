@@ -35,5 +35,6 @@ module EventBookingSystem
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: "event_booking_app_session"
+    config.active_job.queue_adapter = :sidekiq
   end
 end

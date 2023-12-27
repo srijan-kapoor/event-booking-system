@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.create(booking_params)
 
     if @booking.save
+      BookingConfirmationJob.perform_async(@booking.id)
       render json: @booking, status: :created
     else
       render json: @booking.errors, status: :unprocessable_entity

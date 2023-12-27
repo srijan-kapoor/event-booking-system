@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
   def index
-    events = Event.all
+    events = current_user.events.all
     render json: events
   end
 
@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      EventUpdateNotificationJob.perform_async(@event.id)
       render json: @event.to_json(include: {tickets: { methods: :type }})
     else
       render json: @event.errors, status: :unprocessable_entity
@@ -31,7 +32,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    render json: { "message": "Event deleted successfully." }
+    render json: { "message": "Event deleted successfully." }, status: :no_content
   end
 
   private
