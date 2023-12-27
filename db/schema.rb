@@ -58,13 +58,14 @@ ActiveRecord::Schema.define(version: 2023_12_26_081830) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "type", default: 0
-    t.boolean "availability", default: false
+    t.string "type", null: false
+    t.boolean "availability", default: true
     t.string "pricing"
     t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_tickets_on_event_id"
+    t.index ["type", "event_id"], name: "index_tickets_on_type_and_event_id", unique: true
     t.index ["type"], name: "index_tickets_on_type"
   end
 

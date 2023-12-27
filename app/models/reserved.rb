@@ -1,0 +1,2 @@
+class Reserved < Ticket
+end
