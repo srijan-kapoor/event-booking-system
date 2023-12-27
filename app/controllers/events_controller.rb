@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_event_organizer
-  before_action :set_event, only: [:show, :update]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   def index
     events = Event.all
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @event = current_user.events.create(event_params)
 
     if @event.save
-      render json: @event, status: :created
+      render json: @event.to_json(include: {tickets: { methods: :type }}), status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
     end
@@ -27,6 +27,11 @@ class EventsController < ApplicationController
     else
       render json: @event.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @event.destroy
+    render json: { "message": "Event deleted successfully." }
   end
 
   private
