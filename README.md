@@ -8,19 +8,19 @@ A simple backend for an event booking system
 * Database: Postgresql (pg '>= 0.18')
 
 * Project Setup
-  1. Clone the repo
+  - Clone the repo
   ```
   git clone https://github.com/srijan-kapoor/event-booking-system.git
   ```
-  2. Move to directory
+  - Move to directory
   ```
   cd event-booking-system
   ```
-  3. Run bin setup
+  - Run setup
   ```
   bin/setup
   ```
-  4. Start the server
+  - Start the server
   ```
   bundle exec rails s
   ```
