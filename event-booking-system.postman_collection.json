@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "8665ac1a-7b1b-4e35-969f-9af6286b28a8",
+		"name": "Event Booking System",
+		"description": "An API collection for Event Booking System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7269880"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer[name]",
+							"value": "Joyela",
+							"type": "text"
+						},
+						{
+							"key": "customer[email]",
+							"value": "joy@example.com",
+							"type": "text"
+						},
+						{
+							"key": "customer[password]",
+							"value": "password123",
+							"type": "text"
+						},
+						{
+							"key": "customer[password_confirmation]",
+							"value": "password123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer[email]",
+							"value": "joy@example.com",
+							"type": "text"
+						},
+						{
+							"key": "customer[password]",
+							"value": "password123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Event Organizer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "event_organizer[name]",
+							"value": "evo",
+							"type": "text"
+						},
+						{
+							"key": "event_organizer[email]",
+							"value": "evo@example.com",
+							"type": "text"
+						},
+						{
+							"key": "event_organizer[password]",
+							"value": "password#321",
+							"type": "text"
+						},
+						{
+							"key": "event_organizer[password_confirmation]",
+							"value": "password#321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/event_organizers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"event_organizers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as Event Organizer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "event_organizer[email]",
+							"value": "evo@example.com",
+							"type": "text"
+						},
+						{
+							"key": "event_organizer[password]",
+							"value": "password#321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/event_organizers/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"event_organizers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Event with Tickets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event\" : {\n        \"name\": \"Tomatino 2026\",\n        \"description\": \"test-desc\",\n        \"venue\": \"Spain\",\n        \"date\": \"31/02/2023\",\n        \"tickets_attributes\": [\n            {\n                \"pricing\": \"10000\",\n                \"type\": \"Vip\"\n            },\n            {\n                \"pricing\": \"1000\",\n                \"type\": \"Member\"\n            },\n            {\n                \"pricing\": \"5000\",\n                \"type\": \"Reserved\"\n            },\n            {\n                \"pricing\": \"500\",\n                \"type\": \"Freebie\"\n            },\n            {\n                \"pricing\": \"7000\",\n                \"type\": \"General\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/events/6a004da0-20e5-427a-87b6-c0fe916f4a69",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events",
+						"6a004da0-20e5-427a-87b6-c0fe916f4a69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Event",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event\" : {\n        \"venue\": \"Barcelona\",\n        \"date\": \"12/02/2024\",\n        \"tickets_attributes\": [\n            {   \"id\": \"03c2bf14-ea38-4853-820c-c14ad64395e9\",\n                \"pricing\": \"10000\",\n                \"type\": \"Vip\"\n            },\n            {   \"id\": \"20115c6c-5dbe-4022-8d78-1ad14d000378\",\n                \"pricing\": \"1000\",\n                \"type\": \"Member\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/events/4e2be579-0808-4f54-9e28-4942c7d5ed55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events",
+						"4e2be579-0808-4f54-9e28-4942c7d5ed55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Event",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/events/6a004da0-20e5-427a-87b6-c0fe916f4a69",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events",
+						"6a004da0-20e5-427a-87b6-c0fe916f4a69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "booking[event_id]",
+							"value": "0c13ec94-6210-4300-a1ad-ccf1db0873bf",
+							"type": "text"
+						},
+						{
+							"key": "booking[ticket_id]",
+							"value": "e3124382-9ca1-4625-9da0-0bcb40d24b12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
