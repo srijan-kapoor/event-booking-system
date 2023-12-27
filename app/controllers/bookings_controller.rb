@@ -19,6 +19,6 @@ class BookingsController < ApplicationController
   end
 
   def authenticate_customer
-    render json: { "error": "Unauthroized" }, status: :unauthorized unless current_user_is_customer?
+    render json: { "error": "Unauthorized" }, status: :unauthorized unless current_user_is_customer?
   end
 end
