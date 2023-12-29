@@ -4,7 +4,7 @@ A simple backend for an event booking system.
 
 API only application is hosted on https://event-booking-j7do.onrender.com and can be used for testing by referring to the "Endpoints" section at the end.
 
-![Entity Relationship Diagram](./event_booking.jpg)
+![Entity Relationship Diagram](./assets/event_booking.jpg)
 * Ruby version: 2.7.2
 * Rails version: 6
 * Database: Postgresql (pg '>= 0.18')
@@ -36,7 +36,7 @@ API only application is hosted on https://event-booking-j7do.onrender.com and ca
   ```
 
 ### Directory Structure
-![Code Structure](./code_structure.png)
+![Code Structure](./assets/code_structure.png)
 
 The controller actions for signing up and logging the users can be found under `/controllers/event_organizers_controller.rb` and `/controllers/customers_controller.rb`
 
@@ -79,16 +79,16 @@ A postman collection can be found [here](https://github.com/srijan-kapoor/event-
 
 - `POST /customers`
 
-![Create Customer](./create_customer.png)
+![Create Customer](./assets/create_customer.png)
 
 - `POST /customers/login`
 - `POST /event_organizers`
 
-![Login as Customer](./login_as_customer.png)
+![Login as Customer](./assets/login_as_customer.png)
 
 - `POST /event_organizers/login`
 
-![Login as Event Organizer](./login_as_event_organizer.png)
+![Login as Event Organizer](./assets/login_as_event_organizer.png)
 
 - `POST /events`
 
@@ -128,11 +128,11 @@ A postman collection can be found [here](https://github.com/srijan-kapoor/event-
 - `GET /events`
 - `GET /events/:id`
 
-![Create Events](./create_events_with_tickets.png)
+![Create Events](./assets/create_events_with_tickets.png)
 
 - `PATCH /events/:id`
 
-![Update Event](./update_events.png)
+![Update Event](./assets/update_events.png)
 
   Example request body:
   ```
@@ -157,4 +157,4 @@ A postman collection can be found [here](https://github.com/srijan-kapoor/event-
 - `POST /bookings`
 - `DELETE /events/:id`
 
-![Create Booking](./create_booking.png)
+![Create Booking](./assets/create_booking.png)
